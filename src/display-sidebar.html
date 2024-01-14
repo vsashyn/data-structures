@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #menu-btn {
+        padding: 8px;
+      }
+      #menu {
+        position: absolute;
+        top: 0;
+        width: 400px;
+        height: 100vh;
+        background-color: lightpink;
+        left: -400px;
+        transition: left 1s ease-in-out, right 1s ease-in-out;
+      }
+      #menu.visible {
+        left: 0;
+      }
+      #closeMenu {
+        position: absolute;
+        right: 0;
+        border: 0;
+        all: unset;
+        all: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Webpage</h1>
+    </header>
+    <main>
+      <button id="menu-btn">Menu</button>
+      <nav id="menu">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Work</li>
+          <button id="closeMenu">X</button>
+        </ul>
+      </nav>
+    </main>
+    <footer>
+      <a href="mailto:sashyn.v@gmail.com" />sashyn.v@gmail.com</a>
+    </footer>
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      const closeBtn = document.getElementById("closeMenu");
+
+      btn.addEventListener("click", () => {
+        isSidebarVisible = true;
+        menu.classList.add("visible");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        menu.classList.remove("visible");
+      });
+    </script>
+  </body>
+</html>

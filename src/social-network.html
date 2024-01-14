@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Welcome to My Webpage</h1>
+    <main>
+      <section class="users"></section>
+    </main>
+    <script>
+      (async function () {
+        const fetchR = await fetch("https://randomuser.me/api/");
+        const json = await fetchR.json();
+        console.log(json);
+        renderUser(json.results[0]);
+      })();
+
+      function renderUser(user) {
+        const users = document.getElementsByClassName("users")[0];
+        users.appendChild(h('div', null, [h('img', {src: user.picture.medium}), h('span', null, `${user.name.first} ${user.name.last}`)]))
+      }
+
+      function h(tag, attrs, children) {
+        const el = attrs ? Object.assign(document.createElement(tag), attrs) : document.createElement(tag);
+        if (children) {
+          for (let i = 0, length = children.length; i < length; i++) {
+              const child = children[i];
+              el.appendChild(typeof child === 'string' ? document.createTextNode(child) : child);
+          }
+        }
+        return el
+      }
+    </script>
+  </body>
+</html>
