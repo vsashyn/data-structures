@@ -43,7 +43,7 @@ class BinaryTree {
       const n = new Node(value);
       this.root = n;
     } else {
-      this._goDeep(this.root, value);
+      this._addChild(this.root, value);
     }
   }
   /**
@@ -63,12 +63,6 @@ class BinaryTree {
    * @param {number | string} value to delete
    */
   removeNode(value) {
-    // item not found
-    // item has children
-    // item is leaf
-  
-    // need to save parent
-    // to attach leafs of removed node
     let parent = null;
     let currentNode = this.root;
     let found = false;
@@ -88,21 +82,20 @@ class BinaryTree {
             this.root = currentNode.right;
           }
         }
-        // to place left node
-        // find free child
         if (currentNode.left) {
-          // find free left spot and add it.
+          // find free left spot and add left node
           let n = currentNode.right
-          let found2 = false
-          while(!found2) {
+          let foundFreeLeft = false
+          while(!foundFreeLeft) {
             if (n.left){
               n = n.left
             } else {
-              found2 = true;
+              foundFreeLeft = true;
               n.left = currentNode.left;
             }
           }
         }
+        // currentNode is leaf
         if (!currentNode.left && !currentNode.right) {
           // remove from parent
           if (parent.left && parent.left.value === value) {
@@ -122,17 +115,21 @@ class BinaryTree {
       }
      }
   }
-  // Procees with `addChild` implementation from the book
-  _goDeep(node, value) {
+  /**
+   * Recursion helper function for addChild function 
+   * @param {Node} node 
+   * @param {string | number} value 
+   */
+  _addChild(node, value) {
     if (node.value > value) {
       if (node.left) {
-        this._goDeep(node.left, value);
+        this._addChild(node.left, value);
       } else {
         node.left = new Node(value);
       }
     } else if (node.value < value) {
       if (node.right) {
-        this._goDeep(node.right, value);
+        this._addChild(node.right, value);
       } else {
         node.right = new Node(value);
       }
