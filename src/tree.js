@@ -73,7 +73,7 @@ class BinaryTree {
 
       if (currentNode.value === value) {
         found = true;
-        // has children ?
+        
         if (currentNode.right) {
           if (parent) {
             parent.left = currentNode.right;
