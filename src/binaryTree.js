@@ -5,14 +5,14 @@
  * Example: family tree
  * Example: DOM
  *
- * Binary tree: every node can have max 2 children nodes - left and right.
- *
- * Binary search tree: special tree type where values of every node on the left is less then node value,
- * and on the right value is greater than node's value.
  *
  *
  *
- *
+ */
+
+
+/**
+ * Tree Node
  */
 class Node {
   constructor(value) {
@@ -32,6 +32,11 @@ class Node {
 }
 
 /**
+ * Binary tree: every node can have max 2 children nodes - left and right.
+ *
+ * Binary search tree: special tree type where values of every node on the left is less then node value,
+ * and on the right value is greater than node's value.
+ * 
  * Duplicates are not allowed in this implementation
  */
 class BinaryTree {

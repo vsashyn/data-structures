@@ -1,6 +1,13 @@
 {
+  "name": "data-structures",
+  "version": "0.0.1",
+  "description": "Data structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "sashyn.v@gmail.com",
   "dependencies": {
-    "http-server": "^14.1.1",
     "jest": "^29.7.0"
   }
 }

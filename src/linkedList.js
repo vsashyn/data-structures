@@ -1,71 +1,4 @@
 /**
- * Stack
- * Last in First out
- *
- * Complexity:
- * Adding elements - O(1)
- * Access element by index - O(n)
- *
- * Use case: navigation in browser
- *
- */
-class Stack {
-  constructor() {
-    this.stack = [];
-  }
-  pop() {
-    return this.stack.pop();
-  }
-  push(item) {
-    this.stack.push(item);
-  }
-  peek() {
-    this.stack[this.length - 1];
-  }
-  isEmpty() {
-    return this.length === 0;
-  }
-  get length() {
-    return this.stack.length;
-  }
-}
-
-/**
- * Queues
- * First in First Out
- *
- * Complexity:
- * Adding elements - O(1)
- * Access element by index - O(n)
- *
- * Use case: cache
- */
-
-class Queue {
-  constructor() {
-    this.queue = [];
-  }
-  // add item to back
-  enqueue(item) {
-    this.queue.push(item);
-  }
-  // remove item from front
-  dequeue() {
-    return this.queue.shift();
-  }
-  // return item at the front
-  peek() {
-    this.queue[0];
-  }
-  isEmpty() {
-    this.length === 0;
-  }
-  get length() {
-    this.queue.length;
-  }
-}
-
-/**
  * Linked list
  *
  * Last in First out
@@ -74,7 +7,7 @@ class Queue {
  * Adding elements - O(1)
  * Access element by index - O(n)
  *
- * Use case:
+ * Use case: undo-redo
  *
  */
 
@@ -135,9 +68,6 @@ class LinkedList {
     return this.length === 0;
   }
 }
-
-module.exports = {
-  LinkedList,
-  Stack,
-  Queue
+module.export = {
+  LinkedList
 }
