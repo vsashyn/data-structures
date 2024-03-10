@@ -39,7 +39,7 @@ class Node {
  * 
  * Duplicates are not allowed in this implementation
  */
-class BinaryTree {
+export class BinaryTree {
   constructor() {
     this.root = null;
   }
@@ -143,7 +143,3 @@ class BinaryTree {
     }
   }
 }
-
-module.exports = {
-  BinaryTree,
-};

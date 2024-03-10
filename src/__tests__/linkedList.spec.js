@@ -1,4 +1,4 @@
-const LinkedList = require('../linkedList').LinkedList;
+import { LinkedList} from '../linkedList.js'
 
 describe('LinkedList', () => {
   it('should support pop() and get()', () => {

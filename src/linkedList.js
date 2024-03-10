@@ -18,7 +18,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   constructor() {
     this.head = undefined;
     this.tail = undefined;
@@ -67,7 +67,4 @@ class LinkedList {
   isEmpty() {
     return this.length === 0;
   }
-}
-module.export = {
-  LinkedList
 }

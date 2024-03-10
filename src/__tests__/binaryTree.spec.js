@@ -1,4 +1,4 @@
-const BinaryTree = require("../binaryTree").BinaryTree;
+import { BinaryTree } from "../binaryTree";
 
 describe("BinaryTree", () => {
   let binaryTree;
@@ -76,7 +76,7 @@ describe("BinaryTree", () => {
       ],
     });
   });
-  
+
   it("supports removing node with 2 children", () => {
     binaryTree.addNode(5);
     binaryTree.addNode(3);
@@ -89,7 +89,7 @@ describe("BinaryTree", () => {
     expect(binaryTree.root.toJSON()).toEqual({
       value: 5,
       children: [
-        { value: 4, children: [{value: 1, children: [null, null]}, null] },
+        { value: 4, children: [{ value: 1, children: [null, null] }, null] },
         {
           value: 7,
           children: [
