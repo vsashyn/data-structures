@@ -109,6 +109,12 @@ describe("addTwoNumbers", () => {
     const result = addTwoNumbers(l1, l2);
     expect(result).toEqual(expected);
   });
+  it('should return the sum of two linked lists 4', () => {
+    const l1 = new ListNode()
+    const l2 = createLinkedList(['0','1'])
+    expect(addTwoNumbers(l1, l2).val).toBe(0)
+    expect(addTwoNumbers(l1, l2).next.val).toBe(1)
+  })
 });
 
 describe("getNode", () => {

@@ -1,5 +1,7 @@
 /**
  * https://leetcode.com/problems/add-two-numbers/description/
+ * Time complexity:  O(max(m, n)) * 2
+ * Space complexity: O(1)
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @returns
