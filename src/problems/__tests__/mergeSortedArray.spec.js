@@ -1,24 +1,69 @@
 import { mergeSortedArray, mergeSortedArray2 } from "../mergeSortedArray";
 
 test("merge mergeSortedArray", () => {
-  let num1 = [1,2,3,0,0,0]
-  let m = 3
-  let num2 = [2,5,6]
-  let n = 3
+  let num1 = [1, 2, 3, 0, 0, 0];
+  let m = 3;
+  let num2 = [2, 5, 6];
+  let n = 3;
 
-  let expected = [1,2,2,3,5,6]
-  mergeSortedArray(num1, m, num2, n)
-  expect(num1).toStrictEqual(expected)
+  let expected = [1, 2, 2, 3, 5, 6];
+  mergeSortedArray(num1, m, num2, n);
+  expect(num1).toStrictEqual(expected);
 });
 
 test("merge mergeSortedArray2", () => {
-  let num1 = [1,2,3,0,0,0]
-  let m = 3
-  let num2 = [2,5,6]
-  let n = 3
+  let num1 = [1, 2, 3, 0, 0, 0];
+  let m = 3;
+  let num2 = [-1, 5, 6];
+  let n = 3;
 
-  let expected = [1,2,2,3,5,6]
-  mergeSortedArray2(num1, m, num2, n)
-  expect(num1).toStrictEqual(expected)
+  let expected = [-1, 1, 2, 3, 5, 6];
+  mergeSortedArray2(num1, m, num2, n);
+  expect(num1).toStrictEqual(expected);
+});
+
+test("merge mergeSortedArray2 3", () => {
+  let num1 = [-3, -3, -2, 0, 0, 0];
+  let m = 5;
+  let num2 = [-3, -2, -1, -1, -1];
+  let n = 5;
+
+  let expected = [-3, -3, -3, -2, -2, -1, -1, -1, 0, 0];
+  mergeSortedArray2(num1, m, num2, n);
+  expect(num1).toStrictEqual(expected);
+});
+
+test("merge mergeSortedArray2", () => {
+  let num1 = [
+    -10, -10, -9, -9, -9, -8, -8, -7, -7, -7, -6, -6, -6, -6, -6, -6, -6, -5,
+    -5, -5, -4, -4, -4, -3, -3, -2, -2, -1, -1, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4,
+    5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 9, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ];
+  let m = 55;
+  let num2 = [
+    -10, -10, -9, -9, -9, -9, -8, -8, -8, -8, -8, -7, -7, -7, -7, -7, -7, -7,
+    -7, -6, -6, -6, -6, -5, -5, -5, -5, -5, -4, -4, -4, -4, -4, -3, -3, -3, -2,
+    -2, -2, -2, -2, -2, -2, -1, -1, -1, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2,
+    2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6,
+    7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9,
+  ];
+  let n = 99;
+
+  let expected = [
+    -10, -10, -10, -10, -9, -9, -9, -9, -9, -9, -9, -8, -8, -8, -8, -8, -8, -8,
+    -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -6, -6, -6, -6, -6, -6, -6, -6,
+    -6, -6, -6, -5, -5, -5, -5, -5, -5, -5, -5, -4, -4, -4, -4, -4, -4, -4, -4,
+    -3, -3, -3, -3, -3, -2, -2, -2, -2, -2, -2, -2, -2, -2, -1, -1, -1, -1, -1,
+    0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3,
+    3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6,
+    6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 9, 9, 9, 9,
+    9, 9, 9, 9,
+  ];
+  mergeSortedArray2(num1, m, num2, n);
+  expect(num1).toStrictEqual(expected);
 });
 // total 35 min

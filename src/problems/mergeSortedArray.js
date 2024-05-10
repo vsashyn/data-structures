@@ -15,26 +15,24 @@ export const mergeSortedArray = (nums1, m, nums2, n) => {
 };
 /**
  *
- * Merge 2 sorted arrays for
+ * Merge 2 sorted arrays using O(n) complexity.
+ * Move from left to right. Modify first array.
  */
 export const mergeSortedArray2 = (nums1, m, nums2, n) => {
-  let mi = 0;
-  let ni = 0;
-  do {
-    if (mi === m) {
-      nums1.splice(mi + ni, 0, nums2[ni]);
-      ni++;
-      continue;
-    }
-    if (ni === n) {
-      break;
-    }
-    if (nums1[mi] < nums2[ni]) {
-      mi++;
+  let right = m + n - 1;
+  let i = m - 1;
+  let j = n - 1;
+
+  while (j >= 0) {
+    if (nums1[i] > nums2[j]) {
+      nums1[right] = nums1[i];
+      i--;
+      right--;
     } else {
-      nums1.splice(mi, 0, nums2[ni]);
-      ni++;
+      nums1[right] = nums2[j];
+      j--;
+      right--;
     }
-  } while (mi + ni !== m + n);
-  nums1.splice(n + m);
+  }
+  return nums1;
 };
