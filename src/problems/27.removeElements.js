@@ -1,5 +1,6 @@
 /**
- * Remove elements from array
+ * Remove elements from array.
+ * May be ineficcient due to removing elements from array.
  * @param {*} nums array of nums
  * @param {*} val val to remove
  * @returns
@@ -19,4 +20,25 @@ export const removeElements = (nums, val) => {
   // nums.sort();
   console.log(nums);
   return k;
+};
+
+/**
+ * Using 2 pointers.
+ * Instead of deleting elements in place, use overwrite.
+ * Left tracks where to insert.
+ * Right iterates over array.
+ * @param {*} nums
+ * @param {*} val
+ */
+export const removeElements2 = (nums, val) => {
+  let left = 0,
+    right = 0;
+  while (right < nums.length) {
+    if (nums[right] !== val) {
+      nums[left] = nums[right];
+      left++;
+    }
+    right++;
+  }
+  return left;
 };
