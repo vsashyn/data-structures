@@ -15,10 +15,7 @@ export const removeElements = (nums, val) => {
     } else {
       k++;
     }
-    console.log(nums, k);
   }
-  // nums.sort();
-  console.log(nums);
   return k;
 };
 
