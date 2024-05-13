@@ -1,34 +1,25 @@
 /**
  * 121. Best Time to Buy and Sell Stock
  *
- * Every minimum value creates a new segment to find highest price.
+ * Every time we find lower price to buy, we update it.
+ * Then we compare profit with new range.
  *
  * Time complexity: O(n)
- * Space complexity: O()
+ * Space complexity: O(1)
  *
  * @param {number[]} prices
  * @return {number}
  */
 var maxProfit = function (prices) {
-  let maxCap = 0;
-  let segment = {
-    min: prices[0],
-    max: prices[0],
-  };
-  for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < segment.min) {
-      segment = {
-        min: prices[i],
-        max: prices[i],
-      };
+  let profit = 0;
+  let buy = prices[0];
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] < buy) {
+      buy = prices[i];
     } else {
-      if (prices[i] > segment.max) {
-        segment.max = prices[i];
-      }
-      if (segment.max - segment.min > maxCap) {
-        maxCap = segment.max - segment.min;
-      }
+      profit = Math.max(profit, prices[i] - buy);
     }
   }
-  return maxCap;
+  return profit;
 };
