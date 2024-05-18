@@ -1,10 +1,14 @@
 /**
+ * Return the minimum number of jumps to reach nums[n - 1].
+ *
+ * Time complexity: O(n)
+ * Space complexity: O(1)
  *
  * @param {number[]} nums
  * @return {number}
  */
 export const jump = function (nums) {
-  let pointerInd = 0;
+  let pointerI = 0;
   let jumps = 0;
   let ready = false;
   // corner cases
@@ -12,21 +16,21 @@ export const jump = function (nums) {
     return 0;
   }
   do {
-    let nextInd = -1;
+    let nextI = -1;
     let maxJump = -1;
-    for (let i = 1; i <= nums[pointerInd]; i++) {
-      if (pointerInd + i >= nums.length - 1) {
-        jumps++;
-        ready = true;
-        return jumps;
-      }
-
-      if (maxJump < nums[i + pointerInd] + pointerInd + i) {
-        maxJump = nums[i + pointerInd] + pointerInd + i;
-        nextInd = pointerInd + i;
+    // early return when we found a solution
+    if (pointerI + nums[pointerI] >= nums.length - 1) {
+      jumps++;
+      ready = true;
+      break;
+    }
+    for (let i = 1; i <= nums[pointerI]; i++) {
+      if (maxJump < nums[i + pointerI] + pointerI + i) {
+        maxJump = nums[i + pointerI] + pointerI + i;
+        nextI = pointerI + i;
       }
     }
-    pointerInd = nextInd;
+    pointerI = nextI;
     jumps++;
   } while (ready !== true);
   return jumps;
