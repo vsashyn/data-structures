@@ -13,4 +13,5 @@ test("lowestCommonAncestor", () => {
   expect(LCA(a, b).value).toBe("a");
   expect(LCA(k, e).value).toBe("c");
   expect(LCA(z, d).value).toBe("a");
+  expect(LCA(c, d).value).toBe("c");
 });
