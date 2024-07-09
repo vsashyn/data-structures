@@ -1,14 +1,18 @@
+/**
+ * Even numbers are every 3rd number in a fibonacci row. To optimize it, we can count only even numbers.
+ * @param {*} maxN MaxN that should not be exceeded
+ * @returns sum of even numbers
+ */
 export const fibonacciEvenSum = (maxN) => {
-  let sum = 0;
-  let elems = [1, 1];
-  while (elems[elems.length - 1] + elems[elems.length - 2] <= maxN) {
-    elems.push(elems[elems.length - 1] + elems[elems.length - 2]);
+  if (maxN < 2) return 0;
+  let a = BigInt(1);
+  let b = BigInt(1);
+  let sum = BigInt(0);
+  while (a + b <= maxN) {
+    let even = a + b;
+    sum += BigInt(even);
+    a = even + b;
+    b = even + a;
   }
-  console.log(elems);
-  for (let el of elems) {
-    if (el % 2 === 0) {
-      sum += el;
-    }
-  }
-  return sum;
+  return sum.toString();
 };
