@@ -1,3 +1,9 @@
+/**
+ * Find equal or prev_val < target biggest value using Binary Search
+ * @param {*} nums
+ * @param {*} target Target value
+ * @returns
+ */
 export const binarySearchFindEqualOrSmallerValue = (nums, target) => {
   let l = 0;
   let r = nums.length - 1;
