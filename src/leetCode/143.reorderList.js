@@ -1,4 +1,5 @@
 /**
+ * Space complexity: O(n)
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
@@ -38,3 +39,28 @@ reorderList(list);
 console.log(list);
 reorderList(list2);
 console.log(list2);
+
+/**
+ * Space complexity: O(1)
+ * IN_PROGRESS
+ */
+var reoderList2 = function (head) {
+  // to find middle of the linked list we can use
+  // slow and fast pointers
+  let slow = head;
+  let fast = head.next;
+
+  while (!!fast && !!fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  // slow is the middle
+  let second = slow.next;
+  slow.next = null;
+
+  let prev = null;
+  while (!!second) {
+    let next = second.next;
+  }
+};
+// 1,2,3,4-5-6
